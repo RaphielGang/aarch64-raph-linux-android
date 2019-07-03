@@ -40,11 +40,15 @@ push_gcc() {
     chmod -R 777 "$HOME"/x-tools
     cd "$HOME"/x-tools/aarch64-raphiel-elf || exit
     git init
+    git checkout -b elf
     git add .
-    git checkout -b "$BRANCHNAME"
     git commit -m "[Rollups]: GCC-10 $(date +%d%m%y)" --signoff
-    git remote add origin https://raphielscape:"$GITHUB_TOKEN"@github.com/RaphielGang/aarch64-raph-linux-android.git
-    git push --force origin "$BRANCHNAME"
+
+    # GCC doesn't like quoted token
+    # shellcheck disable=2086
+    git remote add origin https://raphielscape:$GITHUB_TOKEN@github.com/RaphielGang/aarch64-raph-linux-android.git
+
+    git push --force origin elf
 }
 
 build_env

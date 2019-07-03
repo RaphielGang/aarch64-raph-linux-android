@@ -7,8 +7,6 @@ steps:
   environment:
     GITHUB_TOKEN:
       from_secret: MEGALOVANIA
-    SAUCE: "/drone/src/"
-    BRANCH_NAME: elf
   commands:
     - apt-get update
     - ./reqdeps.sh
