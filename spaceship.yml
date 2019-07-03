@@ -1,0 +1,48 @@
+kind: pipeline
+name: GCC Droneship
+
+steps:
+- name: clone_deps
+  image: debian:latest
+  command:
+    - apt-get update
+    - apt-get install -y git
+    - git clone https://github.com/crosstool-ng/crosstool-ng
+
+- name: just_do
+  image: debian:latest
+  environment:
+    GITHUB_TOKEN:
+      from_secret: MEGALOVANIA
+    SAUCE: "/drone/src/"
+    BRANCH_NAME: elf
+  commands:
+    - apt-get update && \
+      apt-get install --yes \
+          git \
+          gcc \
+          g++ \
+          gperf \
+          bison \
+          flex \
+          texinfo \
+          help2man \
+          make \
+          libncurses5-dev \
+          autoconf \
+          automake \
+          libtool \
+          libtool-bin \
+          gawk \
+          wget \
+          bzip2 \
+          xz-utils \
+          unzip \
+          patch \
+          python3 \
+          libstdc++6 && \
+          apt-get clean --yes && rm -rf /var/lib/apt/lists/*
+    - ./the-ship.sh
+  when:
+    branch:
+      - droneship
