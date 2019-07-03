@@ -10,11 +10,11 @@
 # Environment dependencies
 build_env() {
     cd crosstool-ng || exit
-    ./bootstrap >/dev/null 2>&1
-    ./configure >/dev/null 2>&1
+    ./bootstrap
+    ./configure
 
-    make -j"$(nproc)" >/dev/null 2>&1
-    make install >/dev/null 2>&1
+    make -j"$(nproc)"
+    make install
 
     cd ..
     rm -rf crosstool-ng
@@ -29,9 +29,9 @@ build_conf() {
 }
 
 run() {
-    git clone https://github.com/RaphielGang/aarch64-raph-linux-android.git -b config >/dev/null 2>&1
+    git clone https://github.com/RaphielGang/aarch64-raph-linux-android.git -b config config
     cd config || exit
-    ct-ng build >/dev/null 2>&1
+    ct-ng build
 }
 
 # Push the peck
