@@ -11,9 +11,9 @@ steps:
     BRANCH_NAME: elf
   commands:
     - apt-get update
-    - ./drone/src/reqdeps.sh
+    - ./reqdeps.sh
     - git clone https://github.com/crosstool-ng/crosstool-ng
-    - ./drone/src/the-ship.sh
+    - ./the-ship.sh
   when:
     branch:
       - droneship
