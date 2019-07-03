@@ -2,13 +2,6 @@ kind: pipeline
 name: GCC Droneship
 
 steps:
-- name: clone_deps
-  image: debian:latest
-  command:
-    - apt-get update
-    - apt-get install -y git
-    - git clone https://github.com/crosstool-ng/crosstool-ng
-
 - name: just_do
   image: debian:latest
   environment:
@@ -42,6 +35,7 @@ steps:
           python3 \
           libstdc++6 && \
           apt-get clean --yes && rm -rf /var/lib/apt/lists/*
+    - git clone https://github.com/crosstool-ng/crosstool-ng
     - ./the-ship.sh
   when:
     branch:
