@@ -29,4 +29,5 @@ apt-get install --yes \
           unzip \
           patch \
           python3 \
-          libstdc++6
+          libstdc++6 \
+          subversion
