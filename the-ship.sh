@@ -31,6 +31,7 @@ build_conf() {
 run() {
     git clone https://github.com/RaphielGang/aarch64-raph-linux-android.git -b config config
     cd config || exit
+    ct-ng defconfig
     ct-ng build
 }
 
