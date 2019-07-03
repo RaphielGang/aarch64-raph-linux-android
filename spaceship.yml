@@ -10,8 +10,8 @@ steps:
     SAUCE: "/drone/src/"
     BRANCH_NAME: elf
   commands:
-    - apt-get update && \
-      apt-get install --yes \
+    - apt-get update
+    - apt-get install --yes \
           git \
           gcc \
           g++ \
@@ -33,8 +33,7 @@ steps:
           unzip \
           patch \
           python3 \
-          libstdc++6 && \
-          apt-get clean --yes && rm -rf /var/lib/apt/lists/*
+          libstdc++6
     - git clone https://github.com/crosstool-ng/crosstool-ng
     - ./the-ship.sh
   when:
