@@ -3,7 +3,7 @@ name: GCC Droneship
 
 steps:
 - name: just_do
-  image: debian:latest
+  image: debian:stretch-slim
   environment:
     GITHUB_TOKEN:
       from_secret: MEGALOVANIA
