@@ -2,7 +2,7 @@ kind: pipeline
 name: GCC Droneship
 
 steps:
-- name: just_do
+- name: start_build
   image: debian:stretch-slim
   environment:
     GITHUB_TOKEN:
