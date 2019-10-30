@@ -4,8 +4,8 @@ CT_ALLOW_BUILD_AS_ROOT=y
 CT_ALLOW_BUILD_AS_ROOT_SURE=y
 # CT_PREFIX_DIR_RO is not set
 CT_STRIP_TARGET_TOOLCHAIN_EXECUTABLES=y
-CT_EXTRA_CFLAGS_FOR_BUILD="-mtune=native -march=native"
-CT_EXTRA_CFLAGS_FOR_HOST="-mtune=native -march=native"
+CT_EXTRA_CFLAGS_FOR_BUILD="-mtune=skylake -march=westmere"
+CT_EXTRA_CFLAGS_FOR_HOST="-mtune=skylake -march=westmere"
 CT_LOG_INFO=y
 # CT_LOG_PROGRESS_BAR is not set
 CT_ARCH_ARM=y
