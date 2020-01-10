@@ -4,6 +4,7 @@ name: GCC Droneship
 steps:
 - name: start_build
   image: debian:stretch-slim
+  pull: always
   environment:
     GITHUB_TOKEN:
       from_secret: MEGALOVANIA
